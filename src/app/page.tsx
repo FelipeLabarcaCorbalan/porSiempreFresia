@@ -3,6 +3,8 @@ import ListaMensajes from '@/app/components/ListaMensajes';
 import BotonFormulario from '@/app/components/BotonFormulario';
 import { getMensajesAprobados } from './utils/supabase/queries';
 
+export const dynamic = 'force-dynamic';
+
 export default async function HomePage() {
   const mensajes = await getMensajesAprobados();
 
