@@ -1,15 +1,23 @@
-// components/CarruselImagenes.tsx
 'use client';
 
 import { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-// Puedes cargar estas imágenes desde Supabase Storage o una carpeta local
 const IMAGENES = [
-  '/imagenes/foto1.jpg',
-  '/imagenes/foto2.jpg',
-  '/imagenes/foto3.jpg',
-  '/imagenes/foto4.jpg',
+  'https://yfevsjkizyncymtgflqz.supabase.co/storage/v1/object/public/img/1.jpeg',
+  'https://yfevsjkizyncymtgflqz.supabase.co/storage/v1/object/public/img/2.jpeg',
+  'https://yfevsjkizyncymtgflqz.supabase.co/storage/v1/object/public/img/3.jpeg',
+  'https://yfevsjkizyncymtgflqz.supabase.co/storage/v1/object/public/img/4.jpeg',
+  'https://yfevsjkizyncymtgflqz.supabase.co/storage/v1/object/public/img/5.jpeg',
+  'https://yfevsjkizyncymtgflqz.supabase.co/storage/v1/object/public/img/6.jpeg',
+  'https://yfevsjkizyncymtgflqz.supabase.co/storage/v1/object/public/img/7.jpeg',
+  'https://yfevsjkizyncymtgflqz.supabase.co/storage/v1/object/public/img/8.jpeg',
+  'https://yfevsjkizyncymtgflqz.supabase.co/storage/v1/object/public/img/9.jpeg',
+  'https://yfevsjkizyncymtgflqz.supabase.co/storage/v1/object/public/img/10.jpeg',
+  'https://yfevsjkizyncymtgflqz.supabase.co/storage/v1/object/public/img/11.jpeg',
+  'https://yfevsjkizyncymtgflqz.supabase.co/storage/v1/object/public/img/12.jpeg',
+  'https://yfevsjkizyncymtgflqz.supabase.co/storage/v1/object/public/img/13.jpeg',
+  'https://yfevsjkizyncymtgflqz.supabase.co/storage/v1/object/public/img/14.jpeg',
 ];
 
 export default function CarruselImagenes() {
@@ -88,7 +96,7 @@ export default function CarruselImagenes() {
           <img
             src={IMAGENES[currentIndex]}
             alt={`Memoria ${currentIndex + 1}`}
-            className="w-full h-full object-cover"
+            className="w-full h-full object-contain"
             loading={currentIndex === 0 ? 'eager' : 'lazy'}
           />
           {/* Overlay oscuro para mejor legibilidad */}

@@ -7,7 +7,6 @@ export default function FormularioPage() {
   return (
     <main className="min-h-screen bg-gradient-to-b from-gray-50 to-gray-100 py-8">
       <div className="max-w-4xl mx-auto px-4">
-        {/* Botón volver */}
         <Link 
           href="/"
           className="inline-flex items-center text-gray-600 hover:text-gray-900 mb-6 transition-colors"
