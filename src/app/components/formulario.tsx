@@ -9,11 +9,13 @@ export default function FormularioCondolencias() {
 
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
   const [errorMessage, setErrorMessage] = useState('');
+  const [formStartTime] = useState(Date.now());
 
   const handleSubmit = async (formData: FormData) => {
     setStatus('loading');
     setErrorMessage('');
-try {
+    try {
+      formData.append('formTiming', formStartTime.toString())
       const result = await enviarCondolencia(formData);
 
       if (result.success) {
@@ -71,6 +73,7 @@ try {
                 className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-gray-500 focus:border-transparent outline-none transition-all text-gray-900"
                 placeholder="Tu nombre"
                 required
+                maxLength={100}
               />
             </div>
 
@@ -95,9 +98,20 @@ try {
                 className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-gray-500 focus:border-transparent outline-none transition-all text-gray-900 resize-none"
                 placeholder="Escribe aquí tus palabras..."
                 required
+                maxLength={1000}
               />
             </div>
-
+            <div className="hidden" aria-hidden="true">
+              <label htmlFor="website">get out</label>
+              <input
+                type="text"
+                id="website"
+                name="website"
+                tabIndex={-1}
+                autoComplete="off"
+                onChange={() => {}} 
+              />
+            </div>
             <button
               type="submit"
               disabled={status === 'loading'}
